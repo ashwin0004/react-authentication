@@ -8,20 +8,21 @@ export default function LoginPage(){
   const [error,setError]=useState('');
 
   const submit=()=>{
-    // 🔥 Read all users
+    //  Read all the users that submit in the login page
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // 🔥 Find matching user
+    // Find the matching user in here
     const found = users.find(
       u => u.email === form.email && u.password === form.password
     );
 
+    // if the user is existed
     if (found) {
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("currentUser", JSON.stringify(found));
       navigate('/home');
     } else {
-      setError('Invalid credentials');
+      setError('Invalid account');
     }
   };
 
