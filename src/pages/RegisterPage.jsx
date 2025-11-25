@@ -49,23 +49,23 @@ export default function RegisterPage() {
       return;
     }
 
-    // 🔥 Get all users or empty array
+    // Get all users or empty array
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    // 🔥 Check duplicate email
+    // Check duplicate email
     const exists = users.some(u => u.email === formData.email);
     if (exists) {
       alert("Email already registered!");
       return;
     }
 
-    // 🔥 Add new user
+    //  Add new user
     users.push({
       email: formData.email,
       password: formData.password
     });
 
-    // 🔥 Save back
+    //  Save again or back
     localStorage.setItem("users", JSON.stringify(users));
 
     setShowSuccess(true);
